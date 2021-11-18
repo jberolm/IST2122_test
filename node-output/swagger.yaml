@@ -1,0 +1,120 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "HealthInformation",
+    "termsOfService" : "http://spilab.es/",
+    "contact" : {
+      "name" : "Spilab",
+      "url" : "http://spilab.es/",
+      "email" : "spilab.uex@gmail.com"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/jberolm/HealthInformation/1.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "tags" : [ {
+    "name" : "User"
+  } ],
+  "paths" : {
+    "/temperature" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Gets the environment temperature",
+        "operationId" : "getTemperature",
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Temperature"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found response",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "title" : "Endpoint not found",
+                  "type" : "string",
+                  "example" : "Not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/music" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Gets a list of favourite music genres",
+        "operationId" : "getMusic",
+        "responses" : {
+          "200" : {
+            "description" : "Successful response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/MusicArray"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found response",
+            "content" : {
+              "text/plain" : {
+                "schema" : {
+                  "title" : "Endpoint not found",
+                  "type" : "string",
+                  "example" : "Not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Temperature" : {
+        "properties" : {
+          "temperature" : {
+            "type" : "string",
+            "example" : "34.5"
+          }
+        }
+      },
+      "MusicArray" : {
+        "properties" : {
+          "music" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      }
+    },
+    "responses" : {
+      "404" : {
+        "description" : "Not found response",
+        "content" : {
+          "text/plain" : {
+            "schema" : {
+              "title" : "Endpoint not found",
+              "type" : "string",
+              "example" : "Not found"
+            }
+          }
+        }
+      }
+    }
+  }
+}
